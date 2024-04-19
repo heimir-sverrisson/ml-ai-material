@@ -82,3 +82,19 @@ jupyter notebook
 
 In the main tab just double-click on any of the `.ipynb` files on the list to open a new tab
 with that notebook. A tutorial on Jupyter Notebook can be found at [Jupiter Notebook Tutorial](https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Notebook%20Basics.html)
+
+## Natural Language Processing
+
+Remember to activate your virtual environment with `source venv/bin/deactivate` if not already
+activated.
+
+```bash
+pip install spacy
+python -m spacy download en_core_web_trf
+```
+
+The download is about 500 MB. A much smaller model is `en_core_web_sm`.
+
+## Parts of speech
+
+If Jupyter Notebook is not already running, start it again and work on the `SpaCy.ipynb`.
