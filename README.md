@@ -98,3 +98,14 @@ The download is about 500 MB. A much smaller model is `en_core_web_sm`.
 ## Parts of speech
 
 If Jupyter Notebook is not already running, start it again and work on the `SpaCy.ipynb`.
+
+## Decision trees
+
+Install `graphviz` and `scikit-learn-tree` packages into the virtual environment and
+run `python decision_tree.py` to create a decision tree for the `Titanic` dataset.
+In the input file `titanic_2.csv` `Sex=1` means `male` and `0` female.
+
+The python script creates `Titanic.pdf`. In the `values` vector, the first element is how
+many died and the second how many survived. The graph has `True` condition to the left
+and `False` to the right. The root node is a decision on sex, so women are on the left
+side (`Sex <= 0.5`) and men on the right.
