@@ -2,19 +2,20 @@
 
 ## Create and activate the virtual environment for Python
 
+If you're on a Mac, where the default shell is `zsh`, you'll need to run `bash` first, as `venv` is only compatible with `bash`. Once you've done that, continue with the following.
+
 ```bash
-python -m venv venv
+python3 -m venv venv
 source venv/bin/activate
 ```
 
 This should activate a private version of python 3.11. You can check it with
 
 ```bash
-which python
+which python3
 ```
 
-That should show the path to `venv/bin/python`.
-
+That should show the path to `venv/bin/python3`.
 
 ## Using the virtual environment
 
@@ -36,21 +37,21 @@ source venv/bin/deactivate
 ## Install Jupyter Notebook in the virtual environment
 
 ```bash
-pip install jupyterlab
-pip install notebook
-python -m ipykernel install --user --name=venv
+pip3 install jupyterlab
+pip3 install notebook
+python3 -m ipykernel install --user --name=venv
 ```
 
 ## Install other libraries
 
 ```bash
-pip install psycopg2
-pip install scikit-learn
-pip install numpy
-pip install matplotlib
-pip install pandas
-pip install torch
-pip install torchvision
+pip3 install psycopg2
+pip3 install scikit-learn
+pip3 install numpy
+pip3 install matplotlib
+pip3 install pandas
+pip3 install torch
+pip3 install torchvision
 ```
 
 Beware that the `torch` package is several GBytes!
@@ -59,7 +60,7 @@ Beware that the `torch` package is several GBytes!
 
 ```bash
 cd postgresql
-docker-compose start
+docker-compose up
 ./do_load.sh
 Password: postgres
 ...
@@ -69,6 +70,8 @@ Password: postgres
 The script will prompt you twice for the password and just enter `postgres`.
 
 ## Prepare the MNIST data set
+
+If you're still in the `postgresql` directory, run `cd ..`. Then:
 
 ```bash
 tar -xzf MNIST.tgz
@@ -85,12 +88,12 @@ with that notebook. A tutorial on Jupyter Notebook can be found at [Jupiter Note
 
 ## Natural Language Processing
 
-Remember to activate your virtual environment with `source venv/bin/deactivate` if not already
+Remember to activate your virtual environment with `source venv/bin/activate` if not already
 activated.
 
 ```bash
-pip install spacy
-python -m spacy download en_core_web_trf
+pip3 install spacy
+python3 -m spacy download en_core_web_trf
 ```
 
 The download is about 500 MB. A much smaller model is `en_core_web_sm`.
@@ -101,9 +104,11 @@ If Jupyter Notebook is not already running, start it again and work on the `SpaC
 
 ## Decision trees
 
-Install `graphviz` and `scikit-learn-tree` packages into the virtual environment and
-run `python decision_tree.py` to create a decision tree for the `Titanic` dataset.
-In the input file `titanic_2.csv` `Sex=1` means `male` and `0` female.
+If you're on Mac and using Homebrew to manage packages, run `brew install graphviz`.
+
+Use `pip3` to install `graphviz` and `scikit-learn-tree` packages into the Python virtual
+environment and run `python3 decision_tree.py` to create a decision tree for the `Titanic`
+dataset. In the input file `titanic_2.csv` `Sex=1` means `male` and `0` female.
 
 The python script creates `Titanic.pdf`. In the `values` vector, the first element is how
 many died and the second how many survived. The graph has `True` condition to the left
