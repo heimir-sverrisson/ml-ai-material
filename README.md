@@ -60,7 +60,14 @@ Beware that the `torch` package is several GBytes!
 
 ```bash
 cd postgresql
-docker-compose up
+docker compose up
+# `db` service logs will output in this terminal
+```
+
+Open another terminal in the project directory and run:
+
+```bash
+cd postgresql
 ./do_load.sh
 Password: postgres
 ...
